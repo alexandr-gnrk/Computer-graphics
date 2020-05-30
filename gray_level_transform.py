@@ -13,20 +13,19 @@ def darker(im_arr, degree):
 
 
 if __name__ == '__main__':
-    im = array(Image.open('./images/gosha.jpg'))
+    im = array(Image.open('./images/gosha.jpg').convert('L'))
     figure(figsize=(15, 15))
     subplots_adjust(hspace=0.3)
 
+    gray()
     subplot(221, title='original')
     imshow(im)
-    
     subplot(222, title='negative')
     imshow(negative(im))
     
     subplot(223, title='clamp_to_interval')
-    imshow(clamp_to_interval(im, 100, 200))
+    imshow(clamp_to_interval(im, 240, 255))
     
     subplot(224, title='darker')
     imshow(darker(im, 3))
-    gray()
     show()
